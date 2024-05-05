@@ -18,4 +18,7 @@ ON
     E.DEPTNUM = D.DEPTNUM ;
 
 
+--Question 2 
 
+SELECT * FROM V_EMP
+WHERE GAINS>2500 ;
