@@ -89,3 +89,41 @@ WHERE EMPSAL=750;
 ni modifier le département d'un employé à une valeur autre que 10 via 
 la vue V_EMP_10. Ces opérations vont à l'encontre de la condition 
 de la vue et ne sont donc pas autorisées.*/
+
+
+--Question 8
+
+--Créaction de la vue
+--Méthode 1
+CREATE VIEW TOTAL_SAL_PAR_DEP AS
+SELECT 
+    DEPTNUM, SUM(EMPSAL) AS TOTAL_SAL
+FROM
+    EMPLOYER
+GROUP BY DEPTNUM;
+
+
+
+SELECT
+    E.EMPNAME,
+    E.EMPSAL,
+    (E.EMPSAL / T.TOTAL_SAL * 100) AS pourcentage_salaire
+FROM
+    EMPLOYER E
+JOIN
+    TOTAL_SAL_PAR_DEP T ON E.DEPTNUM = T.DEPTNUM;
+
+
+--Méthode 2 
+
+SELECT
+    E.EMPNAME,
+    E.EMPSAL,
+    (E.EMPSAL / T.TOTAL_SAL * 100) AS pourcentage_salaire
+FROM
+    EMPLOYER E
+JOIN
+    (SELECT DEPTNUM, SUM(EMPSAL) AS TOTAL_SAL
+     FROM EMPLOYER
+     GROUP BY DEPTNUM) T ON E.DEPTNUM = T.DEPTNUM;
+
