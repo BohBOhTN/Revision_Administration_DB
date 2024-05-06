@@ -50,3 +50,10 @@ FROM ALL_TABLES
 WHERE OWNER='HR';
 
 
+----Affichez les noms des colonnes de la table DEPARTMENTS.-----
+
+
+SELECT COLUMN_NAME
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME = 'DEPARTMENTS'
+
