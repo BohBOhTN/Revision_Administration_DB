@@ -50,5 +50,15 @@ INSERT INTO
 V_EMP_10 (EMPNUM, EMPNAME, EMPJOB, REQDATE, EMPSAL, EMPCOMMISSION, DEPTNUM, EMPMGR)
 VALUES (1224, 'SALAH', 'ANALYST', TO_DATE('01/01/2022', 'DD/MM/YYYY'), 1500, NULL, 20, 7839);
 
+--Question 5.2
+
+SELECT * FROM V_EMP_10
+WHERE EMPNAME='SALAH';
+--This code returns 0 rows since the view only accepts department 10 employees 
+--but it inserts the new ligne to the main table EMPLOYER
+
+
+SELECT * FROM EMPLOYER
+WHERE EMPNAME='SALAH';
 
 
