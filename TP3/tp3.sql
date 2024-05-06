@@ -62,3 +62,29 @@ SELECT * FROM EMPLOYER
 WHERE EMPNAME='SALAH';
 
 
+--Question 6 
+
+
+CREATE VIEW V_EMP_10 AS
+SELECT *
+FROM
+    EMPLOYER
+WHERE
+    DEPTNUM = 10 
+WITH
+    CHECK OPTION;
+
+
+INSERT INTO 
+V_EMP_10 (EMPNUM, EMPNAME, EMPJOB, REQDATE, EMPSAL, EMPCOMMISSION, DEPTNUM, EMPMGR)
+VALUES (1224, 'BALARD', 'ANALYST', TO_DATE('21/04/2018', 'DD/MM/YYYY'), 1500, NULL, 30, 7839);
+
+
+UPDATE V_EMP_10
+SET DEPTNUM=20
+WHERE EMPSAL=750;
+
+/*vous ne pouvez insérer un employé avec DEPTNUM = 30 dans la vue V_EMP_10 
+ni modifier le département d'un employé à une valeur autre que 10 via 
+la vue V_EMP_10. Ces opérations vont à l'encontre de la condition 
+de la vue et ne sont donc pas autorisées.*/
