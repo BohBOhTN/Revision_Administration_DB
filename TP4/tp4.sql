@@ -39,3 +39,14 @@ SELECT INSTANCE_NAME , STARTUP_TIME FROM V$INSTANCE;
 CETTE COMMANDE AFFICHE LE NOM DE L'INSTANCE ET LE DATE DE DEMMARAGE
 */
 
+
+--------------------- Exploration des données ---------------------------------
+
+
+----Affichez les noms des tables créés par l'utilisateur HR.-----
+
+SELECT TABLE_NAME , OWNER
+FROM ALL_TABLES
+WHERE OWNER='HR';
+
+
